@@ -1,0 +1,89 @@
+[
+  {
+    "id": "POLICY-001",
+    "title": "Prohibited and Unverifiable Claims",
+    "category": "claims",
+    "keywords": ["guaranteed", "best", "lowest", "cheapest", "number one", "top rated", "#1", "world's best", "proven", "clinically proven", "scientifically proven", "100%", "promise"],
+    "content": "Listings must not contain unsupported superlative or comparative claims. Phrases such as 'best in the world', 'guaranteed lowest price', 'number one', '#1', or 'clinically proven' are prohibited unless independently verified evidence is provided within the listing and is available for inspection. Sellers may not state or imply that their product is the market leader, cheapest, or most effective without documented third-party verification."
+  },
+  {
+    "id": "POLICY-002",
+    "title": "Misleading Statements",
+    "category": "claims",
+    "keywords": ["free", "unlimited", "no fees", "zero cost", "risk-free", "no risk", "instant", "guaranteed results", "always works", "never fails", "zero side effects"],
+    "content": "Listings must not include statements that could mislead a reasonable buyer. This includes falsely implying that a product is free when fees apply, that results are guaranteed when they vary by user, or that a product has no side effects or risks when such information is unknown or unverified. Any claim that implies certainty where variability exists is considered misleading."
+  },
+  {
+    "id": "POLICY-003",
+    "title": "Required Product Information",
+    "category": "completeness",
+    "keywords": ["specifications", "dimensions", "weight", "materials", "ingredients", "warranty", "model number", "compatibility", "returns"],
+    "content": "Listings must include sufficient product information to allow buyers to make an informed purchase decision. At minimum: a clear description of what the product or service is, key specifications or features, applicable warranty or return information where relevant, and category-specific mandatory attributes. Listings that omit fundamental product information may be flagged as incomplete."
+  },
+  {
+    "id": "POLICY-004",
+    "title": "Comparative Advertising",
+    "category": "claims",
+    "keywords": ["better than", "outperforms", "beats", "superior to", "unlike competitors", "unlike other brands", "versus", "compared to"],
+    "content": "Direct comparisons to competitor products are permitted only when factual, verifiable, and fair. Comparative claims must not be disparaging or misleading. Claims such as 'better than Brand X' require documented evidence. Generic comparative claims without a named competitor (e.g. 'better than anything on the market') are prohibited as unverifiable."
+  },
+  {
+    "id": "POLICY-005",
+    "title": "Prohibited Products and Services",
+    "category": "prohibited",
+    "keywords": ["illegal", "counterfeit", "replica", "fake", "knockoff", "banned", "restricted", "controlled substance", "prescription", "weapon", "explosive"],
+    "content": "The marketplace prohibits listings for counterfeit or replica goods, prescription drugs or controlled substances, weapons, explosives, or any product or service that is illegal in the seller's or buyer's jurisdiction. Use of terms such as 'replica', 'knockoff', or 'counterfeit' is an automatic disqualification."
+  },
+  {
+    "id": "POLICY-006",
+    "title": "Seller Information Requirements",
+    "category": "seller",
+    "keywords": ["seller", "contact", "vendor", "business", "company", "name"],
+    "content": "All listings must include accurate seller identification. The seller's name must be provided. A contact method (email, phone, or business URL) is strongly recommended. Listings from anonymous or unidentified sellers may be flagged for additional review."
+  },
+  {
+    "id": "POLICY-007",
+    "title": "Pricing Transparency",
+    "category": "pricing",
+    "keywords": ["price", "cost", "fee", "charge", "hidden fee", "additional charge", "free shipping", "tax"],
+    "content": "Prices listed must reflect the actual cost to the buyer for the base product or service. Hidden fees not disclosed in the listing are prohibited. If shipping, installation, or service fees apply separately, they must be disclosed. The price must be a clear positive numeric value."
+  },
+  {
+    "id": "POLICY-008",
+    "title": "Electronics Category Requirements",
+    "category": "category_specific",
+    "appliesTo": ["Electronics"],
+    "keywords": ["electronics", "device", "gadget", "phone", "laptop", "computer", "battery", "voltage", "watts", "compatibility"],
+    "content": "Electronics listings must include: operating specifications (voltage, wattage, or battery requirements as applicable), compatibility information (operating system, connector type, or standards), and any relevant safety certifications. Listings for refurbished or used electronics must clearly state the item condition."
+  },
+  {
+    "id": "POLICY-009",
+    "title": "Clothing and Apparel Requirements",
+    "category": "category_specific",
+    "appliesTo": ["Clothing"],
+    "keywords": ["clothing", "apparel", "size", "material", "fabric", "wash", "care", "fit", "gender"],
+    "content": "Clothing listings must specify available sizes, materials/fabrics used, and care instructions where known. Listings must not make sizing claims (e.g. 'fits all sizes') unless the product is genuinely designed to be one-size-fits-all. Country of manufacture should be disclosed where required by law."
+  },
+  {
+    "id": "POLICY-010",
+    "title": "Brand Tone and Language Standards",
+    "category": "brand",
+    "keywords": ["tone", "language", "professional", "respectful", "offensive", "inappropriate", "slang", "caps", "exclamation"],
+    "content": "All listing content must be written in a professional, respectful tone. Excessive use of capital letters (ALL CAPS), repeated exclamation marks, or aggressive sales language is prohibited. Content must be in English or include an English version. Offensive, discriminatory, or derogatory language is strictly prohibited. Listings should be clear, factual, and easy to understand."
+  },
+  {
+    "id": "POLICY-011",
+    "title": "Description Clarity and Accuracy",
+    "category": "brand",
+    "keywords": ["vague", "unclear", "ambiguous", "specific", "accurate", "detailed", "honest"],
+    "content": "Product and service descriptions must be clear, specific, and accurate. Vague descriptions that do not adequately describe what is being sold are not permitted. Sellers must not use the description field to stuff keywords, repeat the title, or include unrelated promotional text. Descriptions should help buyers understand what they are purchasing."
+  },
+  {
+    "id": "POLICY-012",
+    "title": "Beauty and Health Product Requirements",
+    "category": "category_specific",
+    "appliesTo": ["Beauty"],
+    "keywords": ["beauty", "skincare", "health", "supplement", "cream", "lotion", "ingredient", "allergy", "dermatologist", "tested", "cure", "treat", "diagnose"],
+    "content": "Beauty and health-related listings must not make medical claims (e.g. 'cures', 'treats', or 'diagnoses' any condition) unless the product is a registered medical device or prescription item, which requires separate verification. Ingredient lists are required for topical products. Allergen information must be disclosed where known."
+  }
+]

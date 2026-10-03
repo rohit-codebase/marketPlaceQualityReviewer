@@ -1,0 +1,37 @@
+[
+  {
+    "id": "BRAND-001",
+    "title": "Title Writing Guidelines",
+    "category": "brand_title",
+    "keywords": ["title", "headline", "name", "heading"],
+    "content": "Titles should be concise, factual, and descriptive. A good title includes: product name, key differentiating feature, and an important specification where relevant. Titles must not be keyword-stuffed, written in ALL CAPS, or contain more than 200 characters. Do not include price, promotional phrases, or unverifiable claims in the title."
+  },
+  {
+    "id": "BRAND-002",
+    "title": "Description Formatting Standards",
+    "category": "brand_description",
+    "keywords": ["description", "formatting", "structure", "paragraphs", "bullets"],
+    "content": "Descriptions should be structured clearly. Use short paragraphs or bullet points for features. Begin with a brief overview of the product or service, followed by key features or specifications. Avoid excessive repetition. The description must add value beyond the title — do not simply restate the title. Minimum useful description length is 50 characters."
+  },
+  {
+    "id": "BRAND-003",
+    "title": "Approved Brand Language",
+    "category": "brand_language",
+    "keywords": ["language", "tone", "writing style", "voice", "communication"],
+    "content": "Use clear, simple, buyer-focused language. Write as if explaining the product to a knowledgeable buyer, not a general audience. Avoid jargon unless the product is technical and the category warrants it. Positive, benefit-oriented language is encouraged. Avoid hype words: amazing, incredible, unbelievable, revolutionary, game-changer."
+  },
+  {
+    "id": "BRAND-004",
+    "title": "Prohibited Hype and Exaggerated Language",
+    "category": "brand_language",
+    "keywords": ["amazing", "incredible", "unbelievable", "revolutionary", "game-changer", "once in a lifetime", "don't miss", "act now", "limited time"],
+    "content": "The following categories of language are prohibited: urgency-inducing language without a genuine limited offer (e.g. 'act now', 'limited time only'), superlatives without evidence (e.g. 'the most advanced ever made'), exaggerated adjectives (e.g. 'mind-blowing', 'revolutionary'), and emotional manipulation tactics."
+  },
+  {
+    "id": "BRAND-005",
+    "title": "Attribute and Specification Standards",
+    "category": "brand_attributes",
+    "keywords": ["attributes", "specifications", "specs", "features", "details", "dimensions"],
+    "content": "Product attributes should use standard units and naming conventions. Numeric values must include units (e.g. '500g', '15.6 inches', '10,000 mAh'). Boolean features should be stated clearly (e.g. 'Water resistant: Yes'). Attribute keys should be consistent with category norms. Avoid vague attributes like 'Quality: High' without supporting evidence."
+  }
+]

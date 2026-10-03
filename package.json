@@ -1,0 +1,12 @@
+{
+  "name": "marketplace-listing-quality-reviewer",
+  "version": "1.0.0",
+  "description": "Marketplace Listing Quality Reviewer - MERN technical assessment project",
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client dev",
+    "build:client": "npm --prefix client run build",
+    "test": "npm --prefix server test",
+    "seed": "node server/seed.js"
+  }
+}
