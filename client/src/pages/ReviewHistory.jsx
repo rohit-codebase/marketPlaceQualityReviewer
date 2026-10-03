@@ -66,17 +66,17 @@ export default function ReviewHistory() {
   };
 
   return (
-    <div>
+    <div className="min-w-0">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-100">Review History</h1>
-          <p className="text-slate-400 mt-1">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-100">Review History</h1>
+          <p className="text-slate-400 text-sm mt-1">
             {total} completed review{total !== 1 ? 's' : ''} recorded in audit trail
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <label className="text-xs text-slate-400 flex items-center gap-1">
+        <div className="flex flex-wrap items-center gap-3">
+          <label className="text-xs text-slate-400 flex items-center gap-1.5">
             Per page:
             <select
               value={limit}
@@ -130,10 +130,10 @@ export default function ReviewHistory() {
           </Link>
         </div>
       ) : (
-        <div className="space-y-4">
-          <div className="card overflow-hidden p-0">
+        <div className="space-y-4 min-w-0">
+          <div className="card overflow-hidden p-0 min-w-0">
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full text-sm min-w-[640px]">
                 <thead>
                   <tr className="border-b border-slate-800 bg-slate-900/50">
                     <th className="text-left px-4 py-3 text-slate-400 font-medium">Listing</th>
@@ -178,13 +178,13 @@ export default function ReviewHistory() {
                             {totalFindings} finding{totalFindings !== 1 ? 's' : ''}
                           </span>
                         </td>
-                        <td className="px-4 py-3.5 text-slate-400 text-xs">
+                        <td className="px-4 py-3.5 text-slate-400 text-xs whitespace-nowrap">
                           {formatDate(r.createdAt)}
                         </td>
                         <td className="px-4 py-3.5 text-right">
                           <Link
                             to={`/reviews/${r._id}`}
-                            className="btn-secondary text-xs px-2.5 py-1 inline-flex items-center gap-1 hover:border-brand-500"
+                            className="btn-secondary text-xs px-2.5 py-1 inline-flex items-center gap-1 hover:border-brand-500 whitespace-nowrap"
                           >
                             Review →
                           </Link>
@@ -195,47 +195,47 @@ export default function ReviewHistory() {
                 </tbody>
               </table>
             </div>
-          </div>
 
-          {/* Pagination Controls */}
-          {totalPages > 1 && (
-            <div className="flex items-center justify-between px-2 py-3">
-              <p className="text-xs text-slate-400">
-                Showing{' '}
-                <span className="text-slate-200 font-medium">
-                  {(page - 1) * limit + 1}
-                </span>{' '}
-                to{' '}
-                <span className="text-slate-200 font-medium">
-                  {Math.min(page * limit, total)}
-                </span>{' '}
-                of <span className="text-slate-200 font-medium">{total}</span> reviews
-              </p>
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t border-slate-800">
+                <p className="text-xs text-slate-400 text-center sm:text-left">
+                  Showing{' '}
+                  <span className="text-slate-200 font-medium">
+                    {(page - 1) * limit + 1}
+                  </span>{' '}
+                  to{' '}
+                  <span className="text-slate-200 font-medium">
+                    {Math.min(page * limit, total)}
+                  </span>{' '}
+                  of <span className="text-slate-200 font-medium">{total}</span> reviews
+                </p>
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => handlePageChange(page - 1)}
-                  disabled={page <= 1 || loading}
-                  className="btn-secondary text-xs px-3 py-1.5 disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  ← Previous
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => handlePageChange(page - 1)}
+                    disabled={page <= 1 || loading}
+                    className="btn-secondary text-xs px-3 py-1.5 disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    ← Previous
+                  </button>
 
-                <span className="text-xs text-slate-400 px-2">
-                  Page <strong className="text-slate-200">{page}</strong> of{' '}
-                  <strong className="text-slate-200">{totalPages}</strong>
-                </span>
+                  <span className="text-xs text-slate-400 px-2 whitespace-nowrap">
+                    Page <strong className="text-slate-200">{page}</strong> of{' '}
+                    <strong className="text-slate-200">{totalPages}</strong>
+                  </span>
 
-                <button
-                  onClick={() => handlePageChange(page + 1)}
-                  disabled={page >= totalPages || loading}
-                  className="btn-secondary text-xs px-3 py-1.5 disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  Next →
-                </button>
+                  <button
+                    onClick={() => handlePageChange(page + 1)}
+                    disabled={page >= totalPages || loading}
+                    className="btn-secondary text-xs px-3 py-1.5 disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    Next →
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       )}
     </div>

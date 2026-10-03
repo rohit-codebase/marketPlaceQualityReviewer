@@ -31,50 +31,50 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-100">Dashboard</h1>
-        <p className="text-slate-400 mt-1">Overview of listing quality and review activity</p>
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold text-slate-100">Dashboard</h1>
+        <p className="text-slate-400 text-sm mt-1">Overview of listing quality and review activity</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
         {statCards.map((s) => (
-          <div key={s.label} className="card">
-            <p className="text-sm text-slate-400">{s.label}</p>
-            <p className={`text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
+          <div key={s.label} className="card min-w-0">
+            <p className="text-xs sm:text-sm text-slate-400 font-medium truncate">{s.label}</p>
+            <p className={`text-2xl sm:text-3xl font-bold mt-1 ${s.color}`}>{s.value}</p>
           </div>
         ))}
       </div>
 
       {/* Recent Reviews */}
-      <div className="card">
+      <div className="card mb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-slate-100">Recent Reviews</h2>
-          <Link to="/history" className="text-sm text-brand-400 hover:text-brand-300">View all →</Link>
+          <h2 className="font-semibold text-slate-100 text-base sm:text-lg">Recent Reviews</h2>
+          <Link to="/history" className="text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium">View all →</Link>
         </div>
 
         {recentReviews.length === 0 ? (
           <div className="text-center py-12 text-slate-500">
             <p className="text-3xl mb-2">📋</p>
-            <p>No reviews yet. Create a listing and trigger a review to get started.</p>
+            <p className="text-sm">No reviews yet. Create a listing and trigger a review to get started.</p>
           </div>
         ) : (
           <div className="divide-y divide-slate-800">
             {recentReviews.map((review) => (
-              <div key={review._id} className="py-3 flex items-center justify-between gap-3">
-                <div className="min-w-0">
+              <div key={review._id} className="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
+                <div className="min-w-0 flex-1">
                   <p className="text-sm font-medium text-slate-200 truncate">
                     {review.listingId?.title || 'Untitled'}
                   </p>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-0.5 truncate">
                     {review.listingId?.category} · {formatRelativeDate(review.createdAt)}
                   </p>
                 </div>
-                <div className="flex items-center gap-3 shrink-0">
+                <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
                   <StatusBadge status={review.aiOverallStatus} />
                   <Link
                     to={`/reviews/${review._id}`}
-                    className="text-xs text-brand-400 hover:text-brand-300"
+                    className="text-xs text-brand-400 hover:text-brand-300 font-medium"
                   >
                     View →
                   </Link>
@@ -86,16 +86,16 @@ export default function Dashboard() {
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-2 gap-4 mt-4">
-        <Link to="/listings/new" className="card hover:border-brand-600 transition-colors cursor-pointer text-center py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Link to="/listings/new" className="card hover:border-brand-600 transition-colors cursor-pointer text-center py-6 sm:py-8">
           <p className="text-3xl mb-2">➕</p>
           <p className="font-medium text-slate-200">Create Listing</p>
-          <p className="text-sm text-slate-400 mt-1">Add a new product or service listing</p>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">Add a new product or service listing</p>
         </Link>
-        <Link to="/batch" className="card hover:border-brand-600 transition-colors cursor-pointer text-center py-8">
+        <Link to="/batch" className="card hover:border-brand-600 transition-colors cursor-pointer text-center py-6 sm:py-8">
           <p className="text-3xl mb-2">⚡</p>
           <p className="font-medium text-slate-200">Batch Review</p>
-          <p className="text-sm text-slate-400 mt-1">Review multiple listings at once</p>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">Review multiple listings at once</p>
         </Link>
       </div>
     </div>

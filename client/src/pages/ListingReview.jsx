@@ -66,64 +66,64 @@ export default function ListingReview() {
   const medCount = allFindings.filter((f) => f.severity === 'medium').length;
 
   return (
-    <div>
+    <div className="min-w-0">
       {/* Header */}
-      <div className="flex items-start justify-between mb-6 gap-4">
-        <div>
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-6 gap-4">
+        <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 mb-1">
             <Link to="/listings" className="text-slate-500 hover:text-slate-300 text-sm">← Listings</Link>
           </div>
-          <h1 className="text-xl font-bold text-slate-100">{snapshot?.title}</h1>
-          <div className="flex items-center gap-3 mt-2">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-100 break-words">{snapshot?.title}</h1>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-2">
             <StatusBadge status={review.aiOverallStatus} />
-            <span className="text-slate-400 text-sm">{snapshot?.category} · {snapshot?.seller?.name}</span>
+            <span className="text-slate-400 text-xs sm:text-sm break-words">{snapshot?.category} · {snapshot?.seller?.name}</span>
             <span className="text-slate-500 text-xs">{formatDate(review.createdAt)}</span>
           </div>
         </div>
-        <div className="text-right shrink-0">
-          <p className="text-xs text-slate-500 mb-1">Review ID</p>
-          <p className="text-xs font-mono text-slate-600">{review._id}</p>
+        <div className="sm:text-right shrink-0 bg-slate-900/60 sm:bg-transparent p-2 sm:p-0 rounded-lg border sm:border-0 border-slate-800">
+          <p className="text-xs text-slate-500 mb-0.5 sm:mb-1">Review ID</p>
+          <p className="text-xs font-mono text-slate-400 sm:text-slate-600 break-all">{review._id}</p>
         </div>
       </div>
 
       {/* Summary card */}
-      <div className="card mb-6">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-slate-100">AI Summary</h2>
-          <div className="flex gap-2">
+      <div className="card mb-6 min-w-0">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <h2 className="font-semibold text-slate-100 text-base sm:text-lg">AI Summary</h2>
+          <div className="flex flex-wrap gap-2">
             {highCount > 0 && <span className="badge bg-red-900 text-red-200">{highCount} high</span>}
             {medCount > 0 && <span className="badge bg-yellow-900 text-yellow-200">{medCount} medium</span>}
           </div>
         </div>
-        <p className="text-slate-300 text-sm">{review.aiSummary || 'No AI summary available.'}</p>
+        <p className="text-slate-300 text-sm break-words leading-relaxed">{review.aiSummary || 'No AI summary available.'}</p>
         {review.aiAssumptions?.length > 0 && (
-          <div className="mt-3 p-3 bg-slate-800/60 rounded-lg">
+          <div className="mt-3 p-3 bg-slate-800/60 rounded-lg min-w-0">
             <p className="text-xs font-semibold text-yellow-400 mb-2">⚠ Assumptions / Unverifiable Claims</p>
             <ul className="space-y-1">
               {review.aiAssumptions.map((a, i) => (
-                <li key={i} className="text-xs text-slate-400 flex gap-2"><span>·</span>{a}</li>
+                <li key={i} className="text-xs text-slate-400 flex gap-2 break-words"><span>·</span><span className="break-words">{a}</span></li>
               ))}
             </ul>
           </div>
         )}
         {review.policySectionsUsed?.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1">
+          <div className="mt-3 flex flex-wrap gap-1.5 items-center">
             <span className="text-xs text-slate-500">Policy sections used:</span>
             {review.policySectionsUsed.map((s) => (
-              <span key={s} className="text-xs font-mono text-brand-400">{s}</span>
+              <span key={s} className="text-xs font-mono text-brand-400 bg-slate-800 px-1.5 py-0.5 rounded break-all">{s}</span>
             ))}
           </div>
         )}
         {review.status === 'failed' && (
-          <div className="mt-3 p-3 bg-red-950/40 border border-red-800/40 rounded-lg">
-            <p className="text-sm text-red-400">⚠ AI review failed: {review.errorMessage}</p>
+          <div className="mt-3 p-3 bg-red-950/40 border border-red-800/40 rounded-lg min-w-0">
+            <p className="text-sm text-red-400 break-words">⚠ AI review failed: {review.errorMessage}</p>
             <p className="text-xs text-slate-500 mt-1">Deterministic findings are still available below.</p>
           </div>
         )}
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 mb-4 bg-slate-900 rounded-lg p-1 w-fit border border-slate-800">
+      <div className="flex gap-1 mb-4 bg-slate-900 rounded-lg p-1 w-full sm:w-fit border border-slate-800 overflow-x-auto max-w-full">
         {[
           { key: 'findings', label: `Findings (${allFindings.length})` },
           { key: 'diff', label: 'Original vs Revised' },
@@ -131,7 +131,7 @@ export default function ListingReview() {
         ].map((tab) => (
           <button
             key={tab.key}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${
+            className={`px-3 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors shrink-0 whitespace-nowrap min-h-[36px] ${
               activeTab === tab.key
                 ? 'bg-brand-600 text-white'
                 : 'text-slate-400 hover:text-slate-200'
@@ -145,7 +145,7 @@ export default function ListingReview() {
 
       {/* Findings Tab */}
       {activeTab === 'findings' && (
-        <div>
+        <div className="min-w-0">
           {allFindings.length === 0 ? (
             <div className="card text-center py-12">
               <p className="text-3xl mb-2">✅</p>
@@ -202,35 +202,35 @@ export default function ListingReview() {
 
       {/* Diff Tab */}
       {activeTab === 'diff' && (
-        <div className="card">
+        <div className="card min-w-0">
           <DiffViewer original={snapshot} actions={actions} />
         </div>
       )}
 
       {/* Listing Details Tab */}
       {activeTab === 'listing' && (
-        <div className="card space-y-4">
+        <div className="card space-y-4 min-w-0">
           {[
             { label: 'Title', value: snapshot?.title },
             { label: 'Description', value: snapshot?.description },
             { label: 'Category', value: snapshot?.category },
             { label: 'Price', value: snapshot?.price !== undefined ? formatPrice(snapshot.price) : '—' },
-            { label: 'Seller', value: `${snapshot?.seller?.name}${snapshot?.seller?.contact ? ` (${snapshot.seller.contact})` : ''}` },
+            { label: 'Seller', value: `${snapshot?.seller?.name || ''}${snapshot?.seller?.contact ? ` (${snapshot.seller.contact})` : ''}` },
             { label: 'Tags', value: snapshot?.tags?.join(', ') || '—' },
           ].map(({ label, value }) => (
-            <div key={label}>
+            <div key={label} className="min-w-0">
               <p className="text-xs font-medium text-slate-500 uppercase mb-1">{label}</p>
-              <p className="text-sm text-slate-200">{value}</p>
+              <p className="text-sm text-slate-200 break-words whitespace-pre-line">{value}</p>
             </div>
           ))}
           {snapshot?.attributes && Object.keys(snapshot.attributes).length > 0 && (
             <div>
               <p className="text-xs font-medium text-slate-500 uppercase mb-2">Attributes</p>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {Object.entries(snapshot.attributes).map(([k, v]) => (
-                  <div key={k} className="bg-slate-800 rounded px-3 py-2 text-sm">
+                  <div key={k} className="bg-slate-800 rounded px-3 py-2 text-sm min-w-0">
                     <span className="text-slate-400">{k}: </span>
-                    <span className="text-slate-200">{v}</span>
+                    <span className="text-slate-200 break-words">{v}</span>
                   </div>
                 ))}
               </div>
